@@ -121,7 +121,7 @@ def main():
         import webbrowser
 
         webbrowser.open("http://duckduckgo.com/?%s" % urllib.urlencode(
-            dict(q=query)), new=2)
+            dict(q=q)), new=2)
 
         sys.exit(0)
 
