@@ -105,7 +105,8 @@ def main():
     import sys
     from optparse import OptionParser
 
-    parser = OptionParser(version="ddg %s" % __version__)
+    parser = OptionParser(usage="usage: %prog [options] query",
+                          version="ddg %s" % __version__)
     parser.add_option("-o", "--open", dest="open", action="store_true",
                       help="open results in a browser")
     parser.add_option("-n", dest="n", type="int", default=3,
@@ -142,7 +143,7 @@ def main():
     if results.type == 'disambiguation':
         print ("'%s' can mean multiple things. You can re-run your query "
                "and add '-d #' where '#' is the topic number you're "
-               "interested in.\n" % query)
+               "interested in.\n" % q)
 
         for i, related in enumerate(results.related[0:options.n]):
             name = related.url.split("/")[-1].replace("_", " ")
@@ -152,7 +153,7 @@ def main():
             print '%d. %s: %s\n' % (i + 1, name, summary)
     else:
         for i, result in enumerate(results.results[0:options.n]):
-            summary = result.text[0:60]
+            summary = result.text[0:70].replace("&nbsp;", " ")
             if len(summary) < len(result.text):
                 summary += "..."
             print "%d. %s" % (i + 1, summary)
