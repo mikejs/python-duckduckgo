@@ -101,7 +101,7 @@ class Answer(object):
         self.type = xml.attrib.get('type', '')
 
 
-if __name__ == '__main__':
+def main():
     import sys
     from optparse import OptionParser
 
@@ -157,3 +157,7 @@ if __name__ == '__main__':
                 summary += "..."
             print "%d. %s" % (i + 1, summary)
             print "  <%s>\n" % result.url
+
+
+if __name__ == '__main__':
+    main()

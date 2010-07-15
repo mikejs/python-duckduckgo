@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 from duckduckgo import __version__
 
 long_description = open('README.rst').read()
@@ -20,4 +20,5 @@ setup(name='duckduckgo',
                    "Programming Language :: Python",
                    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
                    ],
+      entry_points={'console_scripts':['ddg = duckduckgo:main']},
       )
